@@ -1787,18 +1787,51 @@ Namespace SampleCode
             '             * The GetMerchantProfiles() operation retrieves all Merchant Profiles for a specific service and tender type.
             '            
 
-            Dim MerchantProfileIds As List(Of String) = Helper.Cwssic.GetMerchantProfileIds(Helper.SessionToken, Helper.ServiceID, TenderType.Credit)
+            If (ConfigurationSettings.AppSettings("ActivationKey") IsNot "" And Me._bcs.ServiceId = "39C6700001") Then
+                MerchantProfileIds.Clear()
+                MerchantProfileIds.Add(ConfigurationSettings.AppSettings("ActivationKey"))
 
-            If MerchantProfileIds IsNot Nothing Then
-                For Each MPID As String In MerchantProfileIds
-                    If MPID = "" Then
+                If MerchantProfileIds IsNot Nothing Then
+                    For Each MPID As String In MerchantProfileIds
+                        If MPID = "" Then
 
-                        'Although empty MerchantProfileIds should not exist perform the check just in case. 
-                        cboAvailableProfiles.Items.Add(New Item("<default>", "", ""))
-                    Else
-                        cboAvailableProfiles.Items.Add(New Item(MPID, MPID, ""))
-                    End If
-                Next
+                            'Although empty MerchantProfileIds should not exist perform the check just in case. 
+                            cboAvailableProfiles.Items.Add(New Item("<default>", "", ""))
+                        Else
+                            cboAvailableProfiles.Items.Add(New Item(MPID, MPID, ""))
+                        End If
+                    Next
+                End If
+            ElseIf (ConfigurationSettings.AppSettings("ActivationKey") IsNot "" And Me._bcs.ServiceId = "4C85600001") Then
+                MerchantProfileIds.Clear()
+                MerchantProfileIds.Add(ConfigurationSettings.AppSettings("ActivationKey") + "_TC")
+
+                If MerchantProfileIds IsNot Nothing Then
+                    For Each MPID As String In MerchantProfileIds
+                        If MPID = "" Then
+
+                            'Although empty MerchantProfileIds should not exist perform the check just in case. 
+                            cboAvailableProfiles.Items.Add(New Item("<default>", "", ""))
+                        Else
+                            cboAvailableProfiles.Items.Add(New Item(MPID, MPID, ""))
+                        End If
+                    Next
+                End If
+            Else
+
+                Dim MerchantProfileIds As List(Of String) = Helper.Cwssic.GetMerchantProfileIds(Helper.SessionToken, Helper.ServiceID, TenderType.Credit)
+
+                If MerchantProfileIds IsNot Nothing Then
+                    For Each MPID As String In MerchantProfileIds
+                        If MPID = "" Then
+
+                            'Although empty MerchantProfileIds should not exist perform the check just in case. 
+                            cboAvailableProfiles.Items.Add(New Item("<default>", "", ""))
+                        Else
+                            cboAvailableProfiles.Items.Add(New Item(MPID, MPID, ""))
+                        End If
+                    Next
+                End If
             End If
             txtPersistedAndCached.Text = "ApplicationProfileId : " & Convert.ToString(Helper.ApplicationProfileId) & vbCr & vbLf & "ServiceId : " & Convert.ToString(Helper.ServiceID) & vbCr & vbLf & "MerchantProfileId : " & Convert.ToString(Helper.MerchantProfileId)
         End Sub
