@@ -44,6 +44,7 @@ Namespace SampleCode
 
         Public _ITV As IndustryTypeValues
         'Message regarding processing. Likely instead of this your software would write the results directly to your database or a log file. 
+        Public IntService As Boolean
         Public _message As String
 
 #End Region
@@ -410,7 +411,7 @@ Namespace SampleCode
             BCtransaction.CustomerData.CustomerId = TxnData.OrderNumber
 
             BCtransaction.TenderData = New BankcardTenderData()
-            BCtransaction.TenderData.CardData = New CardData()
+            BCtransaction.TenderData.CardData = New CardData1()
 
             'Process as a Swipe or as a Keyed Transaction
             If ProcessAs = ProcessAs.Keyed Then
@@ -423,7 +424,7 @@ Namespace SampleCode
                 Try
                     TxnData.EntryMode = schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.EntryMode.Keyed
                     Dim T As TokenizedTransaction = TokenizedTransaction
-                    BCtransaction.TenderData.CardData = New CardData()
+                    BCtransaction.TenderData.CardData = New CardData1()
                     BCtransaction.TenderData.PaymentAccountDataToken = T.PaymentAccountDataToken
                     BCtransaction.TenderData.CardData.CardType = T.CardType
                     BCtransaction.TenderData.CardData.Expire = T.ExpireationDate ' Note : that in a swipe track data the format is "YYMM" however here it's "MMYY"
@@ -477,7 +478,7 @@ Namespace SampleCode
                 'Check to see if the transaction is a PINDebit Transaction
                 If ProcessAs = ProcessAs.PINDebit Then
                     If BCtransaction.TenderData.CardSecurityData Is Nothing Then
-                        BCtransaction.TenderData.CardSecurityData = New CardSecurityData()
+                        BCtransaction.TenderData.CardSecurityData = New CardSecurityData1()
                     End If
                     BCtransaction.TenderData.CardSecurityData.KeySerialNumber = KeySerialNumber
                     BCtransaction.TenderData.CardSecurityData.PIN = EncryptedPIN
@@ -487,25 +488,47 @@ Namespace SampleCode
             '#Region "Simulating a flag used to set either AVS CV or PINDebit data"
             'Simulating a flag used to set either AVS, CV data or PINDebit
             Dim blnAVS As Boolean = _ITV._IncludeAVS
+            Dim blnIntService = IntService
+            Dim blnIntAVSOverride = _ITV._IntAVSOverride
             Dim blnCVV As Boolean = _ITV._IncludeCV
 
             If blnAVS Or blnCVV Then
                 If BCtransaction.TenderData.CardSecurityData Is Nothing Then
-                    BCtransaction.TenderData.CardSecurityData = New CardSecurityData() 'Required if AVS or CV is used
+                    BCtransaction.TenderData.CardSecurityData = New CardSecurityData1() 'Required if AVS or CV is used
                 End If
                 If blnAVS Then
-                    'AVSData
-                    BCtransaction.TenderData.CardSecurityData.AVSData = New AVSData()
-                    'Required AVS Elements
-                    BCtransaction.TenderData.CardSecurityData.AVSData.PostalCode = "10101"
-                    'Optional AVS Elements
-                    BCtransaction.TenderData.CardSecurityData.AVSData.CardholderName = "John Smith"
-                    BCtransaction.TenderData.CardSecurityData.AVSData.City = "Denver"
-                    BCtransaction.TenderData.CardSecurityData.AVSData.Country = schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.TypeISOCountryCodeA3.USA
-                    BCtransaction.TenderData.CardSecurityData.AVSData.Phone = "303 5456699" 'Must be of format "NNN NNNNNNN"
-                    BCtransaction.TenderData.CardSecurityData.AVSData.StateProvince = "CO"
-                    BCtransaction.TenderData.CardSecurityData.AVSData.Street = "1000 1st Av"
+                    If (Not blnIntService) Then
+                        'AVSData
+                        BCtransaction.TenderData.CardSecurityData.AVSData = New AVSData()
+                        'Required AVS Elements
+                        BCtransaction.TenderData.CardSecurityData.AVSData.PostalCode = "10101"
+                        'Optional AVS Elements
+                        BCtransaction.TenderData.CardSecurityData.AVSData.CardholderName = "John Smith"
+                        BCtransaction.TenderData.CardSecurityData.AVSData.City = "Denver"
+                        BCtransaction.TenderData.CardSecurityData.AVSData.Country = schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.TypeISOCountryCodeA3.USA
+                        BCtransaction.TenderData.CardSecurityData.AVSData.Phone = "303 5456699" 'Must be of format "NNN NNNNNNN"
+                        BCtransaction.TenderData.CardSecurityData.AVSData.StateProvince = "CO"
+                        BCtransaction.TenderData.CardSecurityData.AVSData.Street = "1000 1st Av"
+                    Else
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData = New InternationalAVSData()
+                        'Required International AVS Elements
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.HouseNumber = "5"
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.Street = "Schulstrasse"
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.City = "Bad Oyenhausen"
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.PostalCode = "32547"
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.Country = schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.TypeISOCountryCodeA3.DEU
+                        'Optional Internation AVS Elements
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.POBoxNumber = ""
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSData.StateProvince = "RW"
+                    End If
+                    If (blnIntAVSOverride And CardType <> TypeCardType.Maestro) Then
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSOverride = New InternationalAVSOverride()
+                        BCtransaction.TenderData.CardSecurityData.InternationalAVSOverride.IgnoreAVS = True 'This will keep the system from declining transactions on 'No Match' AVS
+                        'BCtransaction.TenderData.CardSecurityData.InternationalAVSOverride.AVSRejectCodes = "NI"; 'EVO payments and merchant will agree on what is populated here
+                        'BCtransaction.TenderData.CardSecurityData.InternationalAVSOverride.SkipAVS = true; 'This will skip AVS processing
+                    End If
                 End If
+
                 If blnCVV Then
                     'CVData
                     Dim strCVData As String = "111" 'Please note that this would typically be an input field in the application.
@@ -521,7 +544,37 @@ Namespace SampleCode
                     End If
                 End If
             End If
-            '			#End Region ' END Simulating a flag used to set either AVS CV or PINDebit data
+            '#End Region  END Simulating a flag used to set either AVS CV or PINDebit data
+
+            Dim blnIntBilling As Boolean = _ITV._IncludeBilling
+            If (blnIntService And blnIntBilling) Then
+                BCtransaction.CustomerData.BillingData = New CustomerInfo()
+                BCtransaction.CustomerData.BillingData.Name = New NameInfo()
+                BCtransaction.CustomerData.BillingData.InternationalAddress = New InternationalAddressInfo()
+                BCtransaction.CustomerData.BillingData.Name.First = "Mark"
+                BCtransaction.CustomerData.BillingData.Name.Last = "Malinowski"
+                BCtransaction.CustomerData.BillingData.InternationalAddress.Street1 = "Platte St"
+                BCtransaction.CustomerData.BillingData.InternationalAddress.HouseNumber = "1553"
+                BCtransaction.CustomerData.BillingData.InternationalAddress.City = "Denver"
+                BCtransaction.CustomerData.BillingData.InternationalAddress.CountryCode = schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.TypeISOCountryCodeA3.USA
+                BCtransaction.CustomerData.BillingData.InternationalAddress.PostalCode = "80228"
+                BCtransaction.CustomerData.BillingData.InternationalAddress.StateProvince = "CO"
+                BCtransaction.CustomerData.BillingData.InternationalAddress.Street2 = "Unit 310"
+                'Shipping Data
+                BCtransaction.CustomerData.ShippingData = New CustomerInfo()
+                BCtransaction.CustomerData.ShippingData.Name = New NameInfo()
+                BCtransaction.CustomerData.ShippingData.InternationalAddress = New InternationalAddressInfo()
+                BCtransaction.CustomerData.ShippingData.Name.First = "Dustin"
+                BCtransaction.CustomerData.ShippingData.Name.Last = "Dowell"
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.Street1 = "Larimer St"
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.City = "Lakewood"
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.CountryCode = schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.TypeISOCountryCodeA3.USA
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.HouseNumber = "1625"
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.PostalCode = "80228"
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.StateProvince = "CO"
+                BCtransaction.CustomerData.ShippingData.InternationalAddress.Street2 = "2601"
+            End If
+
 
             '#Region "Check to see if PINLessDebit selected"
 
@@ -906,8 +959,8 @@ Namespace SampleCode
 
             'Tender Data
             SVATransaction.TenderData = New StoredValueTenderData()
-            SVATransaction.TenderData.CardData = New CardData1()
-            SVATransaction.TenderData.CardSecurityData = New CardSecurityData1()
+            SVATransaction.TenderData.CardData = New CardData()
+            SVATransaction.TenderData.CardSecurityData = New CardSecurityData()
             SVATransaction.TenderData.CardSecurityData.CVDataProvided = CVDataProvided.Provided
             SVATransaction.TenderData.CardSecurityData.CVData = "1111"
 
@@ -948,7 +1001,9 @@ Namespace SampleCode
                 i._ProcessAsKeyed = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_ProcessAsKeyed"))
                 i._SignatureCaptured = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_SignatureCaptured"))
                 i._IncludeAVS = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IncludeAVS"))
+                i._IntAVSOverride = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IntAVSOverride"))
                 i._IncludeCV = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IncludeCV"))
+                i._IncludeBilling = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IncludeBilling"))
             End If
             If _industryType = "Ecommerce" Then
                 'ApplicationData
@@ -968,7 +1023,9 @@ Namespace SampleCode
                 i._ProcessAsKeyed = True
                 i._SignatureCaptured = False
                 i._IncludeAVS = True
+                i._IntAVSOverride = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IntAVSOverride"))
                 i._IncludeCV = True
+                i._IncludeBilling = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IncludeBilling"))
             End If
             If _industryType = "MOTO" Then
                 'ApplicationData
@@ -988,7 +1045,9 @@ Namespace SampleCode
                 i._ProcessAsKeyed = True
                 i._SignatureCaptured = False
                 i._IncludeAVS = True
+                i._IntAVSOverride = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IntAVSOverride"))
                 i._IncludeCV = True
+                i._IncludeBilling = Convert.ToBoolean(ConfigurationSettings.AppSettings("TxnData_IncludeBilling"))
             End If
             If _industryType = "Retail" Then
                 'ApplicationData
@@ -1247,7 +1306,9 @@ Namespace SampleCode
         Public _ProcessAsKeyed As Boolean
         Public _SignatureCaptured As Boolean
         Public _IncludeAVS As Boolean
+        Public _IntAVSOverride As Boolean
         Public _IncludeCV As Boolean
+        Public _IncludeBilling As Boolean
 
     End Class
 

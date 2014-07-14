@@ -1183,7 +1183,7 @@ Namespace SampleCode
                     'Since we used a generic method to set the bankcard data let's clear out the card data and use the token, card type and masked pan returned from
                     'the Authorize above.
                     'NOTE : For tokenization you'll need to store at a minimum the token, cardtype and MaskedPAN. It's also recommended to store the expiration date
-                    BCtransaction.TenderData.CardData = New CardData()
+                    BCtransaction.TenderData.CardData = New CardData1()
                     BCtransaction.TenderData.PaymentAccountDataToken = BCR.PaymentAccountDataToken
                     BCtransaction.TenderData.CardData.CardType = BCR.CardType
                     BCtransaction.TenderData.CardData.Expire = "1213" ' Note : that in a swipe track data the format is "YYMM" however here it's "MMYY"
@@ -2087,7 +2087,11 @@ Namespace SampleCode
                 For Each BCS As BankcardService In _si.BankcardServices
                     If BCS.ServiceId = Helper.ServiceID Then
                         _bcs = BCS 'Set the BankCard Service to be used
-
+                        If BCS.ServiceId = "39C6700001" Or BCS.ServiceId = "FC85600001" Then
+                            dg.IntService = False
+                        Else
+                            dg.IntService = True
+                        End If
                         SupportedTxnTypes = BCS.Operations
                         'Toggle the buttons to match supported transaction types.
                         If Not AvailableTxnTypes(SupportedTxnTypes) Then

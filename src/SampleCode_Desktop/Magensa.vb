@@ -213,7 +213,7 @@ Namespace SampleCode
 
             _bct.TenderData.CardData = Nothing
             If _bct.TenderData.CardSecurityData Is Nothing Then
-                _bct.TenderData.CardSecurityData = New CardSecurityData()
+                _bct.TenderData.CardSecurityData = New CardSecurityData1()
             End If
 
             _bct.TenderData.CardSecurityData.CVData = Nothing
