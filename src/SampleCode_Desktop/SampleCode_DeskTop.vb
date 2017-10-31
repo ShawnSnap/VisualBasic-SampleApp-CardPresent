@@ -2698,21 +2698,5 @@ Namespace SampleCode
 #End Region
 
 #End Region
-
-        Private Sub lnkOnlineDocumentation_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkOnlineDocumentation.LinkClicked
-
-        End Sub
-
-        Private Sub ChkAllowPartialApprovals_CheckedChanged(sender As Object, e As EventArgs) Handles ChkAllowPartialApprovals.CheckedChanged
-
-        End Sub
-
-        Private Sub chkStep2_CheckedChanged(sender As Object, e As EventArgs) Handles chkStep2.CheckedChanged
-
-        End Sub
-
-        Private Sub tbIntroduction_Click(sender As Object, e As EventArgs) Handles tbIntroduction.Click
-
-        End Sub
     End Class
 End Namespace

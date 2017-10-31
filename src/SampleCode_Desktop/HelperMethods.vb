@@ -65,6 +65,7 @@ Imports AlternativeMerchantData = SampleCode_Desktop.schemas.evosnap.com.Ipc.Gen
 Imports AddressInfo = SampleCode_Desktop.schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.AddressInfo
 Imports PrepaidCard = SampleCode_Desktop.schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.PrepaidCard
 Imports TypeISOCountryCodeA3 = SampleCode_Desktop.schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn.TypeISOCountryCodeA3
+Imports System.Net
 #End Region
 
 Namespace SampleCode
@@ -167,8 +168,8 @@ Namespace SampleCode
 
             ' Then, we need to turn the password into Key and IV We are using salt to make it harder to guess our key
             ' using a dictionary attack - trying to guess a password by enumerating all possible words. 
-            Dim pdb As New PasswordDeriveBytes(SKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D, _
-             &H65, &H64, &H76, &H65, &H64, &H65, _
+            Dim pdb As New PasswordDeriveBytes(SKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D,
+             &H65, &H64, &H76, &H65, &H64, &H65,
              &H76})
 
             ' Now get the key/IV and do the encryption using the function that accepts byte arrays. 
@@ -195,8 +196,8 @@ Namespace SampleCode
 
             ' Then, we need to turn the password into Key and IV We are using salt to make it harder to guess our key
             ' using a dictionary attack - trying to guess a password by enumerating all possible words. 
-            Dim pdb As New PasswordDeriveBytes(SKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D, _
-             &H65, &H64, &H76, &H65, &H64, &H65, _
+            Dim pdb As New PasswordDeriveBytes(SKey, New Byte() {&H49, &H76, &H61, &H6E, &H20, &H4D,
+             &H65, &H64, &H76, &H65, &H64, &H65,
              &H76})
 
             ' Now get the key/IV and do the decryption using the function that accepts byte arrays. 
@@ -296,6 +297,8 @@ Namespace SampleCode
 
         Public Function SetSvcEndpoint() As Boolean
             ' Possible Loging -- MessageBox.Show("Setting Svc Endpoint");
+
+            ServicePointManager.SecurityProtocol = (CType(192, SecurityProtocolType) Or (CType(768, SecurityProtocolType) Or CType(3072, SecurityProtocolType)))
 
             Dim ServiceKey As String = ""
 
@@ -1990,7 +1993,7 @@ Namespace SampleCode
 
 #Region "Extra Classes"
 
-    <Serializable> _
+    <Serializable>
     Public Class PersistAndCacheSettings
         Public ApplicationProfileId As String
         Public ServiceId As String
@@ -2046,37 +2049,37 @@ Namespace SampleCode
     End Class
 
     Public Enum TransactionType As Integer
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         AuthorizeAndCapture = 0
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         Authorize = 1
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         Capture = 2
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         CaptureAll = 3
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         CaptureSelective = 4
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         ReturnById = 5
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         [Return] = 6
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         Adjust = 7
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         Undo = 8
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         QueryAccount = 9
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         Verify = 10
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         CaptureAllAsync = 11
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         CaptureSelectiveAsync = 12
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         ManageAccount = 13
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         ManageAccountById = 14
-        <System.Runtime.Serialization.EnumMemberAttribute()> _
+        <System.Runtime.Serialization.EnumMemberAttribute()>
         RequestTransaction = 15
     End Enum
 

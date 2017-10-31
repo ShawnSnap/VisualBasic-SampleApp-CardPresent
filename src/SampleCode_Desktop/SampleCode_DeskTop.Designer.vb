@@ -152,18 +152,18 @@ Namespace SampleCode
             Me.tbIntroduction = New System.Windows.Forms.TabPage()
             Me.label35 = New System.Windows.Forms.Label()
             Me.CboindustryType = New System.Windows.Forms.ComboBox()
-            Me.TxtServiceKey = New System.Windows.Forms.TextBox()
             Me.cmdPopulateWithMyTestValues = New System.Windows.Forms.Button()
             Me.lnkAccessingWebServiceEndpoints = New System.Windows.Forms.LinkLabel()
             Me.cmdGo = New System.Windows.Forms.Button()
             Me.txtIntroduction = New System.Windows.Forms.TextBox()
             Me.txtIdentityToken = New System.Windows.Forms.TextBox()
             Me.lnkIdentityToken = New System.Windows.Forms.LinkLabel()
-            Me.label24 = New System.Windows.Forms.Label()
             Me.groupBox3 = New System.Windows.Forms.GroupBox()
+            Me.lnkServiceKey = New System.Windows.Forms.LinkLabel()
             Me.label31 = New System.Windows.Forms.Label()
             Me.label32 = New System.Windows.Forms.Label()
             Me.label30 = New System.Windows.Forms.Label()
+            Me.TxtServiceKey = New System.Windows.Forms.TextBox()
             Me.txtTMSSecondary = New System.Windows.Forms.TextBox()
             Me.txtTMSPrimary = New System.Windows.Forms.TextBox()
             Me.label5 = New System.Windows.Forms.Label()
@@ -182,6 +182,7 @@ Namespace SampleCode
             Me.label2 = New System.Windows.Forms.Label()
             Me.tbTransactionData = New System.Windows.Forms.TabControl()
             Me.TabPage1 = New System.Windows.Forms.TabPage()
+            Me.Label24 = New System.Windows.Forms.Label()
             Me.GrpTokenization = New System.Windows.Forms.GroupBox()
             Me.ChkTokenization = New System.Windows.Forms.CheckBox()
             Me.CboTokenizedCard = New System.Windows.Forms.ComboBox()
@@ -207,7 +208,6 @@ Namespace SampleCode
             Me.TxtExpirationDate = New System.Windows.Forms.TextBox()
             Me.label26 = New System.Windows.Forms.Label()
             Me.CboCardTypes = New System.Windows.Forms.ComboBox()
-            Me.lnkServiceKey = New System.Windows.Forms.LinkLabel()
             Me.tbTransactionProcessing.SuspendLayout()
             Me.menuStrip1.SuspendLayout()
             Me.groupBox2.SuspendLayout()
@@ -258,11 +258,11 @@ Namespace SampleCode
             Me.tbTransactionProcessing.Controls.Add(Me.lblCurrentService)
             Me.tbTransactionProcessing.Controls.Add(Me.menuStrip1)
             Me.tbTransactionProcessing.Controls.Add(Me.groupBox2)
-            Me.tbTransactionProcessing.Location = New System.Drawing.Point(4, 25)
+            Me.tbTransactionProcessing.Location = New System.Drawing.Point(4, 22)
             Me.tbTransactionProcessing.Name = "tbTransactionProcessing"
-            Me.tbTransactionProcessing.Size = New System.Drawing.Size(836, 766)
+            Me.tbTransactionProcessing.Size = New System.Drawing.Size(836, 729)
             Me.tbTransactionProcessing.TabIndex = 2
-            Me.tbTransactionProcessing.Text = "Transaction Processing"
+            Me.tbTransactionProcessing.Text = "Step 3: Transaction Processing"
             Me.tbTransactionProcessing.UseVisualStyleBackColor = True
             '
             'lblCurrentServiceClass
@@ -1189,12 +1189,12 @@ Namespace SampleCode
             'tbPreparingApplicationToTransact
             '
             Me.tbPreparingApplicationToTransact.Controls.Add(Me.groupBox1)
-            Me.tbPreparingApplicationToTransact.Location = New System.Drawing.Point(4, 25)
+            Me.tbPreparingApplicationToTransact.Location = New System.Drawing.Point(4, 22)
             Me.tbPreparingApplicationToTransact.Name = "tbPreparingApplicationToTransact"
             Me.tbPreparingApplicationToTransact.Padding = New System.Windows.Forms.Padding(3)
-            Me.tbPreparingApplicationToTransact.Size = New System.Drawing.Size(836, 766)
+            Me.tbPreparingApplicationToTransact.Size = New System.Drawing.Size(836, 729)
             Me.tbPreparingApplicationToTransact.TabIndex = 1
-            Me.tbPreparingApplicationToTransact.Text = "Preparing the Application to Transact"
+            Me.tbPreparingApplicationToTransact.Text = "Step 2: Preparing the Application to Transact"
             Me.tbPreparingApplicationToTransact.UseVisualStyleBackColor = True
             '
             'groupBox1
@@ -1233,7 +1233,7 @@ Namespace SampleCode
             Me.groupBox1.Controls.Add(Me.cmdManageApplicationData)
             Me.groupBox1.Location = New System.Drawing.Point(20, 15)
             Me.groupBox1.Name = "groupBox1"
-            Me.groupBox1.Size = New System.Drawing.Size(807, 660)
+            Me.groupBox1.Size = New System.Drawing.Size(807, 705)
             Me.groupBox1.TabIndex = 6
             Me.groupBox1.TabStop = False
             Me.groupBox1.Text = "Preparing the Application to Transact"
@@ -1316,9 +1316,9 @@ Namespace SampleCode
             '
             'cmdSignOnWithToken
             '
-            Me.cmdSignOnWithToken.Location = New System.Drawing.Point(45, 98)
+            Me.cmdSignOnWithToken.Location = New System.Drawing.Point(43, 98)
             Me.cmdSignOnWithToken.Name = "cmdSignOnWithToken"
-            Me.cmdSignOnWithToken.Size = New System.Drawing.Size(216, 23)
+            Me.cmdSignOnWithToken.Size = New System.Drawing.Size(218, 23)
             Me.cmdSignOnWithToken.TabIndex = 2
             Me.cmdSignOnWithToken.Text = "Step 1: Sign On With Token"
             Me.cmdSignOnWithToken.UseVisualStyleBackColor = True
@@ -1401,7 +1401,7 @@ Namespace SampleCode
             Me.txtAboutTheService.Multiline = True
             Me.txtAboutTheService.Name = "txtAboutTheService"
             Me.txtAboutTheService.ScrollBars = System.Windows.Forms.ScrollBars.Both
-            Me.txtAboutTheService.Size = New System.Drawing.Size(303, 497)
+            Me.txtAboutTheService.Size = New System.Drawing.Size(326, 556)
             Me.txtAboutTheService.TabIndex = 0
             '
             'groupBox10
@@ -1473,7 +1473,7 @@ Namespace SampleCode
             Me.label17.AutoSize = True
             Me.label17.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.label17.ForeColor = System.Drawing.Color.RoyalBlue
-            Me.label17.Location = New System.Drawing.Point(23, 640)
+            Me.label17.Location = New System.Drawing.Point(23, 499)
             Me.label17.Name = "label17"
             Me.label17.Size = New System.Drawing.Size(431, 15)
             Me.label17.TabIndex = 22
@@ -1484,7 +1484,7 @@ Namespace SampleCode
             Me.label16.AutoSize = True
             Me.label16.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.label16.ForeColor = System.Drawing.Color.Red
-            Me.label16.Location = New System.Drawing.Point(23, 625)
+            Me.label16.Location = New System.Drawing.Point(23, 484)
             Me.label16.Name = "label16"
             Me.label16.Size = New System.Drawing.Size(380, 15)
             Me.label16.TabIndex = 21
@@ -1598,7 +1598,7 @@ Namespace SampleCode
             'cmdRetrieveServiceInformation
             '
             Me.cmdRetrieveServiceInformation.Enabled = False
-            Me.cmdRetrieveServiceInformation.Location = New System.Drawing.Point(45, 154)
+            Me.cmdRetrieveServiceInformation.Location = New System.Drawing.Point(43, 154)
             Me.cmdRetrieveServiceInformation.Name = "cmdRetrieveServiceInformation"
             Me.cmdRetrieveServiceInformation.Size = New System.Drawing.Size(218, 23)
             Me.cmdRetrieveServiceInformation.TabIndex = 3
@@ -1608,7 +1608,7 @@ Namespace SampleCode
             'cmdManageApplicationData
             '
             Me.cmdManageApplicationData.Enabled = False
-            Me.cmdManageApplicationData.Location = New System.Drawing.Point(43, 127)
+            Me.cmdManageApplicationData.Location = New System.Drawing.Point(43, 126)
             Me.cmdManageApplicationData.Name = "cmdManageApplicationData"
             Me.cmdManageApplicationData.Size = New System.Drawing.Size(218, 23)
             Me.cmdManageApplicationData.TabIndex = 4
@@ -1617,33 +1617,30 @@ Namespace SampleCode
             '
             'tbIntroduction
             '
-            Me.tbIntroduction.Controls.Add(Me.lnkServiceKey)
             Me.tbIntroduction.Controls.Add(Me.label35)
             Me.tbIntroduction.Controls.Add(Me.CboindustryType)
-            Me.tbIntroduction.Controls.Add(Me.TxtServiceKey)
             Me.tbIntroduction.Controls.Add(Me.cmdPopulateWithMyTestValues)
             Me.tbIntroduction.Controls.Add(Me.lnkAccessingWebServiceEndpoints)
             Me.tbIntroduction.Controls.Add(Me.cmdGo)
             Me.tbIntroduction.Controls.Add(Me.txtIntroduction)
             Me.tbIntroduction.Controls.Add(Me.txtIdentityToken)
             Me.tbIntroduction.Controls.Add(Me.lnkIdentityToken)
-            Me.tbIntroduction.Controls.Add(Me.label24)
             Me.tbIntroduction.Controls.Add(Me.groupBox3)
             Me.tbIntroduction.Controls.Add(Me.label21)
             Me.tbIntroduction.Controls.Add(Me.groupBox12)
             Me.tbIntroduction.Controls.Add(Me.label2)
-            Me.tbIntroduction.Location = New System.Drawing.Point(4, 25)
+            Me.tbIntroduction.Location = New System.Drawing.Point(4, 22)
             Me.tbIntroduction.Name = "tbIntroduction"
             Me.tbIntroduction.Padding = New System.Windows.Forms.Padding(3)
-            Me.tbIntroduction.Size = New System.Drawing.Size(836, 766)
+            Me.tbIntroduction.Size = New System.Drawing.Size(836, 729)
             Me.tbIntroduction.TabIndex = 0
-            Me.tbIntroduction.Text = "Introduction"
+            Me.tbIntroduction.Text = "Step 1: Introduction"
             Me.tbIntroduction.UseVisualStyleBackColor = True
             '
             'label35
             '
             Me.label35.AutoSize = True
-            Me.label35.Location = New System.Drawing.Point(195, 257)
+            Me.label35.Location = New System.Drawing.Point(204, 209)
             Me.label35.Name = "label35"
             Me.label35.Size = New System.Drawing.Size(204, 13)
             Me.label35.TabIndex = 146
@@ -1653,28 +1650,16 @@ Namespace SampleCode
             '
             Me.CboindustryType.FormattingEnabled = True
             Me.CboindustryType.Items.AddRange(New Object() {"Ecommerce", "MOTO", "Retail", "Restaurant"})
-            Me.CboindustryType.Location = New System.Drawing.Point(402, 254)
+            Me.CboindustryType.Location = New System.Drawing.Point(408, 209)
             Me.CboindustryType.Name = "CboindustryType"
             Me.CboindustryType.Size = New System.Drawing.Size(99, 21)
             Me.CboindustryType.TabIndex = 145
             '
-            'TxtServiceKey
-            '
-            Me.TxtServiceKey.BorderStyle = System.Windows.Forms.BorderStyle.None
-            Me.TxtServiceKey.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.TxtServiceKey.ForeColor = System.Drawing.Color.OrangeRed
-            Me.TxtServiceKey.Location = New System.Drawing.Point(265, 229)
-            Me.TxtServiceKey.Name = "TxtServiceKey"
-            Me.TxtServiceKey.Size = New System.Drawing.Size(236, 14)
-            Me.TxtServiceKey.TabIndex = 133
-            Me.TxtServiceKey.Text = "Service Key: "
-            Me.TxtServiceKey.Visible = False
-            '
             'cmdPopulateWithMyTestValues
             '
-            Me.cmdPopulateWithMyTestValues.Location = New System.Drawing.Point(522, 253)
+            Me.cmdPopulateWithMyTestValues.Location = New System.Drawing.Point(513, 209)
             Me.cmdPopulateWithMyTestValues.Name = "cmdPopulateWithMyTestValues"
-            Me.cmdPopulateWithMyTestValues.Size = New System.Drawing.Size(160, 23)
+            Me.cmdPopulateWithMyTestValues.Size = New System.Drawing.Size(298, 21)
             Me.cmdPopulateWithMyTestValues.TabIndex = 130
             Me.cmdPopulateWithMyTestValues.Text = "Populate With My Test Values"
             Me.cmdPopulateWithMyTestValues.UseVisualStyleBackColor = True
@@ -1685,7 +1670,7 @@ Namespace SampleCode
             Me.lnkAccessingWebServiceEndpoints.Cursor = System.Windows.Forms.Cursors.Hand
             Me.lnkAccessingWebServiceEndpoints.Image = CType(resources.GetObject("lnkAccessingWebServiceEndpoints.Image"), System.Drawing.Image)
             Me.lnkAccessingWebServiceEndpoints.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-            Me.lnkAccessingWebServiceEndpoints.Location = New System.Drawing.Point(510, 371)
+            Me.lnkAccessingWebServiceEndpoints.Location = New System.Drawing.Point(-4, 437)
             Me.lnkAccessingWebServiceEndpoints.Margin = New System.Windows.Forms.Padding(0)
             Me.lnkAccessingWebServiceEndpoints.MinimumSize = New System.Drawing.Size(20, 20)
             Me.lnkAccessingWebServiceEndpoints.Name = "lnkAccessingWebServiceEndpoints"
@@ -1695,7 +1680,7 @@ Namespace SampleCode
             '
             'cmdGo
             '
-            Me.cmdGo.Location = New System.Drawing.Point(432, 604)
+            Me.cmdGo.Location = New System.Drawing.Point(432, 682)
             Me.cmdGo.Name = "cmdGo"
             Me.cmdGo.Size = New System.Drawing.Size(75, 23)
             Me.cmdGo.TabIndex = 128
@@ -1707,7 +1692,7 @@ Namespace SampleCode
             Me.txtIntroduction.AcceptsReturn = True
             Me.txtIntroduction.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
             Me.txtIntroduction.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.txtIntroduction.Location = New System.Drawing.Point(22, 50)
+            Me.txtIntroduction.Location = New System.Drawing.Point(22, 42)
             Me.txtIntroduction.Multiline = True
             Me.txtIntroduction.Name = "txtIntroduction"
             Me.txtIntroduction.ReadOnly = True
@@ -1717,11 +1702,11 @@ Namespace SampleCode
             'txtIdentityToken
             '
             Me.txtIdentityToken.Cursor = System.Windows.Forms.Cursors.IBeam
-            Me.txtIdentityToken.Location = New System.Drawing.Point(19, 283)
+            Me.txtIdentityToken.Location = New System.Drawing.Point(22, 236)
             Me.txtIdentityToken.Multiline = True
             Me.txtIdentityToken.Name = "txtIdentityToken"
             Me.txtIdentityToken.ScrollBars = System.Windows.Forms.ScrollBars.Vertical
-            Me.txtIdentityToken.Size = New System.Drawing.Size(482, 70)
+            Me.txtIdentityToken.Size = New System.Drawing.Size(485, 195)
             Me.txtIdentityToken.TabIndex = 4
             '
             'lnkIdentityToken
@@ -1730,7 +1715,7 @@ Namespace SampleCode
             Me.lnkIdentityToken.Cursor = System.Windows.Forms.Cursors.Hand
             Me.lnkIdentityToken.Image = CType(resources.GetObject("lnkIdentityToken.Image"), System.Drawing.Image)
             Me.lnkIdentityToken.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-            Me.lnkIdentityToken.Location = New System.Drawing.Point(510, 283)
+            Me.lnkIdentityToken.Location = New System.Drawing.Point(-1, 217)
             Me.lnkIdentityToken.Margin = New System.Windows.Forms.Padding(0)
             Me.lnkIdentityToken.MinimumSize = New System.Drawing.Size(20, 20)
             Me.lnkIdentityToken.Name = "lnkIdentityToken"
@@ -1738,22 +1723,13 @@ Namespace SampleCode
             Me.lnkIdentityToken.TabIndex = 124
             Me.lnkIdentityToken.Tag = "Learn more about ""Sign On"""
             '
-            'label24
-            '
-            Me.label24.AutoSize = True
-            Me.label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-            Me.label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-            Me.label24.Location = New System.Drawing.Point(18, 219)
-            Me.label24.Name = "label24"
-            Me.label24.Size = New System.Drawing.Size(102, 24)
-            Me.label24.TabIndex = 118
-            Me.label24.Text = "Let's Begin"
-            '
             'groupBox3
             '
+            Me.groupBox3.Controls.Add(Me.lnkServiceKey)
             Me.groupBox3.Controls.Add(Me.label31)
             Me.groupBox3.Controls.Add(Me.label32)
             Me.groupBox3.Controls.Add(Me.label30)
+            Me.groupBox3.Controls.Add(Me.TxtServiceKey)
             Me.groupBox3.Controls.Add(Me.txtTMSSecondary)
             Me.groupBox3.Controls.Add(Me.txtTMSPrimary)
             Me.groupBox3.Controls.Add(Me.label5)
@@ -1766,12 +1742,26 @@ Namespace SampleCode
             Me.groupBox3.Controls.Add(Me.txtSvcPrimary)
             Me.groupBox3.Controls.Add(Me.label9)
             Me.groupBox3.Controls.Add(Me.label8)
-            Me.groupBox3.Location = New System.Drawing.Point(19, 359)
+            Me.groupBox3.Location = New System.Drawing.Point(19, 437)
             Me.groupBox3.Name = "groupBox3"
             Me.groupBox3.Size = New System.Drawing.Size(485, 239)
             Me.groupBox3.TabIndex = 114
             Me.groupBox3.TabStop = False
             Me.groupBox3.Text = "Accessing Web Service Endpoints"
+            '
+            'lnkServiceKey
+            '
+            Me.lnkServiceKey.AutoSize = True
+            Me.lnkServiceKey.Cursor = System.Windows.Forms.Cursors.Hand
+            Me.lnkServiceKey.Image = CType(resources.GetObject("lnkServiceKey.Image"), System.Drawing.Image)
+            Me.lnkServiceKey.ImageAlign = System.Drawing.ContentAlignment.TopLeft
+            Me.lnkServiceKey.Location = New System.Drawing.Point(220, 9)
+            Me.lnkServiceKey.Margin = New System.Windows.Forms.Padding(0)
+            Me.lnkServiceKey.MinimumSize = New System.Drawing.Size(20, 20)
+            Me.lnkServiceKey.Name = "lnkServiceKey"
+            Me.lnkServiceKey.Size = New System.Drawing.Size(20, 20)
+            Me.lnkServiceKey.TabIndex = 147
+            Me.lnkServiceKey.Tag = ""
             '
             'label31
             '
@@ -1799,6 +1789,18 @@ Namespace SampleCode
             Me.label30.Size = New System.Drawing.Size(199, 13)
             Me.label30.TabIndex = 117
             Me.label30.Text = "Transaction Management Service (TMS)"
+            '
+            'TxtServiceKey
+            '
+            Me.TxtServiceKey.BorderStyle = System.Windows.Forms.BorderStyle.None
+            Me.TxtServiceKey.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.TxtServiceKey.ForeColor = System.Drawing.Color.OrangeRed
+            Me.TxtServiceKey.Location = New System.Drawing.Point(243, 13)
+            Me.TxtServiceKey.Name = "TxtServiceKey"
+            Me.TxtServiceKey.Size = New System.Drawing.Size(236, 14)
+            Me.TxtServiceKey.TabIndex = 133
+            Me.TxtServiceKey.Text = "Service Key: "
+            Me.TxtServiceKey.Visible = False
             '
             'txtTMSSecondary
             '
@@ -1902,18 +1904,18 @@ Namespace SampleCode
             Me.label21.AutoSize = True
             Me.label21.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
             Me.label21.ForeColor = System.Drawing.SystemColors.ControlDarkDark
-            Me.label21.Location = New System.Drawing.Point(19, 23)
+            Me.label21.Location = New System.Drawing.Point(21, 10)
             Me.label21.Name = "label21"
-            Me.label21.Size = New System.Drawing.Size(286, 24)
+            Me.label21.Size = New System.Drawing.Size(436, 24)
             Me.label21.TabIndex = 2
-            Me.label21.Text = "Commerce Web Services (CWS)"
+            Me.label21.Text = "Let's Begin Using Commerce Web Services (CWS)"
             '
             'groupBox12
             '
             Me.groupBox12.Controls.Add(Me.txtDisclaimer)
-            Me.groupBox12.Location = New System.Drawing.Point(19, 633)
+            Me.groupBox12.Location = New System.Drawing.Point(513, 236)
             Me.groupBox12.Name = "groupBox12"
-            Me.groupBox12.Size = New System.Drawing.Size(792, 125)
+            Me.groupBox12.Size = New System.Drawing.Size(298, 473)
             Me.groupBox12.TabIndex = 1
             Me.groupBox12.TabStop = False
             Me.groupBox12.Text = "Disclaimer"
@@ -1924,21 +1926,20 @@ Namespace SampleCode
             Me.txtDisclaimer.Multiline = True
             Me.txtDisclaimer.Name = "txtDisclaimer"
             Me.txtDisclaimer.ScrollBars = System.Windows.Forms.ScrollBars.Both
-            Me.txtDisclaimer.Size = New System.Drawing.Size(780, 100)
+            Me.txtDisclaimer.Size = New System.Drawing.Size(286, 448)
             Me.txtDisclaimer.TabIndex = 0
             '
             'label2
             '
             Me.label2.AutoSize = True
-            Me.label2.Location = New System.Drawing.Point(19, 267)
+            Me.label2.Location = New System.Drawing.Point(22, 220)
             Me.label2.Name = "label2"
-            Me.label2.Size = New System.Drawing.Size(75, 13)
+            Me.label2.Size = New System.Drawing.Size(78, 13)
             Me.label2.TabIndex = 100
-            Me.label2.Text = "Identity Token"
+            Me.label2.Text = "Identity Token:"
             '
             'tbTransactionData
             '
-            Me.tbTransactionData.Appearance = System.Windows.Forms.TabAppearance.FlatButtons
             Me.tbTransactionData.Controls.Add(Me.tbIntroduction)
             Me.tbTransactionData.Controls.Add(Me.tbPreparingApplicationToTransact)
             Me.tbTransactionData.Controls.Add(Me.tbTransactionProcessing)
@@ -1947,22 +1948,34 @@ Namespace SampleCode
             Me.tbTransactionData.Location = New System.Drawing.Point(12, 12)
             Me.tbTransactionData.Name = "tbTransactionData"
             Me.tbTransactionData.SelectedIndex = 0
-            Me.tbTransactionData.Size = New System.Drawing.Size(844, 795)
+            Me.tbTransactionData.Size = New System.Drawing.Size(844, 755)
             Me.tbTransactionData.TabIndex = 9
             '
             'TabPage1
             '
+            Me.TabPage1.Controls.Add(Me.Label24)
             Me.TabPage1.Controls.Add(Me.GrpTokenization)
             Me.TabPage1.Controls.Add(Me.GrpTrackDataFromMSR)
             Me.TabPage1.Controls.Add(Me.grpProcessasPINLessDebit)
             Me.TabPage1.Controls.Add(Me.GrpCNP)
-            Me.TabPage1.Location = New System.Drawing.Point(4, 25)
+            Me.TabPage1.Location = New System.Drawing.Point(4, 22)
             Me.TabPage1.Name = "TabPage1"
             Me.TabPage1.Padding = New System.Windows.Forms.Padding(3)
-            Me.TabPage1.Size = New System.Drawing.Size(836, 766)
+            Me.TabPage1.Size = New System.Drawing.Size(836, 729)
             Me.TabPage1.TabIndex = 3
-            Me.TabPage1.Text = "Processing Data"
+            Me.TabPage1.Text = "Processing Details"
             Me.TabPage1.UseVisualStyleBackColor = True
+            '
+            'Label24
+            '
+            Me.Label24.AutoSize = True
+            Me.Label24.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+            Me.Label24.ForeColor = System.Drawing.SystemColors.ControlDarkDark
+            Me.Label24.Location = New System.Drawing.Point(6, 3)
+            Me.Label24.Name = "Label24"
+            Me.Label24.Size = New System.Drawing.Size(461, 24)
+            Me.Label24.TabIndex = 151
+            Me.Label24.Text = "Configure details used by transaction buttons in Step 3"
             '
             'GrpTokenization
             '
@@ -2201,76 +2214,63 @@ Namespace SampleCode
             Me.CboCardTypes.Size = New System.Drawing.Size(183, 21)
             Me.CboCardTypes.TabIndex = 6
             '
-            'lnkServiceKey
-            '
-            Me.lnkServiceKey.AutoSize = True
-            Me.lnkServiceKey.Cursor = System.Windows.Forms.Cursors.Hand
-            Me.lnkServiceKey.Image = CType(resources.GetObject("lnkServiceKey.Image"), System.Drawing.Image)
-            Me.lnkServiceKey.ImageAlign = System.Drawing.ContentAlignment.TopLeft
-            Me.lnkServiceKey.Location = New System.Drawing.Point(242, 227)
-            Me.lnkServiceKey.Margin = New System.Windows.Forms.Padding(0)
-            Me.lnkServiceKey.MinimumSize = New System.Drawing.Size(20, 20)
-            Me.lnkServiceKey.Name = "lnkServiceKey"
-            Me.lnkServiceKey.Size = New System.Drawing.Size(20, 20)
-            Me.lnkServiceKey.TabIndex = 147
-            Me.lnkServiceKey.Tag = ""
-            '
             'SampleCode_DeskTop
             '
             Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
             Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
             Me.AutoScroll = True
-            Me.ClientSize = New System.Drawing.Size(885, 761)
-        Me.Controls.Add(Me.lnkOnlineDocumentation)
-        Me.Controls.Add(Me.tbTransactionData)
-        Me.ForeColor = System.Drawing.Color.DarkMagenta
-        Me.MainMenuStrip = Me.menuStrip1
-        Me.Name = "SampleCode_DeskTop"
-        Me.Text = "Sample Code - CWS 1.17.19"
-        Me.tbTransactionProcessing.ResumeLayout(false)
-        Me.tbTransactionProcessing.PerformLayout
-        Me.menuStrip1.ResumeLayout(false)
-        Me.menuStrip1.PerformLayout
-        Me.groupBox2.ResumeLayout(false)
-        Me.groupBox2.PerformLayout
-        Me.groupBox11.ResumeLayout(false)
-        Me.groupBox11.PerformLayout
-        Me.groupBox13.ResumeLayout(false)
-        Me.groupBox13.PerformLayout
-        Me.groupBox9.ResumeLayout(false)
-        Me.groupBox9.PerformLayout
-        Me.groupBox8.ResumeLayout(false)
-        Me.groupBox8.PerformLayout
-        Me.groupBox7.ResumeLayout(false)
-        Me.groupBox7.PerformLayout
-        Me.groupBox14.ResumeLayout(false)
-        Me.groupBox14.PerformLayout
-        Me.groupBox6.ResumeLayout(false)
-        Me.groupBox6.PerformLayout
-        Me.groupBox5.ResumeLayout(false)
-        Me.groupBox5.PerformLayout
-        CType(Me.pictureBox2,System.ComponentModel.ISupportInitialize).EndInit
-        Me.tbPreparingApplicationToTransact.ResumeLayout(false)
-        Me.groupBox1.ResumeLayout(false)
-        Me.groupBox1.PerformLayout
-        CType(Me.picArrow,System.ComponentModel.ISupportInitialize).EndInit
-        Me.groupBox10.ResumeLayout(false)
-        Me.groupBox10.PerformLayout
-        CType(Me.pictureBox1,System.ComponentModel.ISupportInitialize).EndInit
-        Me.tbIntroduction.ResumeLayout(false)
-        Me.tbIntroduction.PerformLayout
-        Me.groupBox3.ResumeLayout(false)
-        Me.groupBox3.PerformLayout
-        Me.groupBox12.ResumeLayout(false)
-        Me.groupBox12.PerformLayout
-        Me.tbTransactionData.ResumeLayout(false)
-        Me.TabPage1.ResumeLayout(false)
-        Me.GrpTokenization.ResumeLayout(false)
-        Me.GrpTokenization.PerformLayout
-        Me.GrpTrackDataFromMSR.ResumeLayout(false)
-        Me.GrpTrackDataFromMSR.PerformLayout
-        Me.grpPinDebit.ResumeLayout(false)
-        Me.grpPinDebit.PerformLayout
+            Me.ClientSize = New System.Drawing.Size(869, 776)
+            Me.Controls.Add(Me.lnkOnlineDocumentation)
+            Me.Controls.Add(Me.tbTransactionData)
+            Me.ForeColor = System.Drawing.Color.DarkMagenta
+            Me.MainMenuStrip = Me.menuStrip1
+            Me.Name = "SampleCode_DeskTop"
+            Me.Text = "Sample Code - CWS 2.1.28"
+            Me.tbTransactionProcessing.ResumeLayout(False)
+            Me.tbTransactionProcessing.PerformLayout()
+            Me.menuStrip1.ResumeLayout(False)
+            Me.menuStrip1.PerformLayout()
+            Me.groupBox2.ResumeLayout(False)
+            Me.groupBox2.PerformLayout()
+            Me.groupBox11.ResumeLayout(False)
+            Me.groupBox11.PerformLayout()
+            Me.groupBox13.ResumeLayout(False)
+            Me.groupBox13.PerformLayout()
+            Me.groupBox9.ResumeLayout(False)
+            Me.groupBox9.PerformLayout()
+            Me.groupBox8.ResumeLayout(False)
+            Me.groupBox8.PerformLayout()
+            Me.groupBox7.ResumeLayout(False)
+            Me.groupBox7.PerformLayout()
+            Me.groupBox14.ResumeLayout(False)
+            Me.groupBox14.PerformLayout()
+            Me.groupBox6.ResumeLayout(False)
+            Me.groupBox6.PerformLayout()
+            Me.groupBox5.ResumeLayout(False)
+            Me.groupBox5.PerformLayout()
+            CType(Me.pictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.tbPreparingApplicationToTransact.ResumeLayout(False)
+            Me.groupBox1.ResumeLayout(False)
+            Me.groupBox1.PerformLayout()
+            CType(Me.picArrow, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.groupBox10.ResumeLayout(False)
+            Me.groupBox10.PerformLayout()
+            CType(Me.pictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
+            Me.tbIntroduction.ResumeLayout(False)
+            Me.tbIntroduction.PerformLayout()
+            Me.groupBox3.ResumeLayout(False)
+            Me.groupBox3.PerformLayout()
+            Me.groupBox12.ResumeLayout(False)
+            Me.groupBox12.PerformLayout()
+            Me.tbTransactionData.ResumeLayout(False)
+            Me.TabPage1.ResumeLayout(False)
+            Me.TabPage1.PerformLayout()
+            Me.GrpTokenization.ResumeLayout(False)
+            Me.GrpTokenization.PerformLayout()
+            Me.GrpTrackDataFromMSR.ResumeLayout(False)
+            Me.GrpTrackDataFromMSR.PerformLayout()
+            Me.grpPinDebit.ResumeLayout(False)
+            Me.grpPinDebit.PerformLayout
         Me.grpProcessasPINLessDebit.ResumeLayout(false)
         Me.grpProcessasPINLessDebit.PerformLayout
         Me.GrpCNP.ResumeLayout(false)
@@ -2368,7 +2368,6 @@ End Sub
         Private WithEvents txtIntroduction As System.Windows.Forms.TextBox
         Private WithEvents txtIdentityToken As System.Windows.Forms.TextBox
         Private WithEvents lnkIdentityToken As System.Windows.Forms.LinkLabel
-        Private WithEvents label24 As System.Windows.Forms.Label
         Private WithEvents groupBox3 As System.Windows.Forms.GroupBox
         Private WithEvents label5 As System.Windows.Forms.Label
         Private WithEvents txtTxnSecondary As System.Windows.Forms.TextBox
@@ -2466,5 +2465,6 @@ End Sub
         Private WithEvents CmdMagensa As System.Windows.Forms.Button
         Private WithEvents ChkUserWorkflowId As System.Windows.Forms.CheckBox
         Private WithEvents lnkServiceKey As System.Windows.Forms.LinkLabel
+        Private WithEvents Label24 As Label
     End Class
 End Namespace
