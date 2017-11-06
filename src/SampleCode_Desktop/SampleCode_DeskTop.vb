@@ -83,9 +83,9 @@ Imports IndustryType = SampleCode_Desktop.schemas.evosnap.com.Ipc.General.WCF.Co
 ' Generating the proxy using svcutil.exe
 '     * Location in Vista : C:\Program Files\Microsoft SDKs\Windows\v6.0A\bin
 '     * Note:  the use of lists,  and merge switch below. 
-'     * svcutil.exe https://api.cipcert.goevo.com/2.0.19/DataServices CWSSOAP\*.xsd /language:VB /namespace:*,schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.TMS  /ct:System.Collections.Generic.List`1 /config:app.config /mergeConfig
-'     * svcutil.exe https://api.cipcert.goevo.com/2.0.19/Txn CWSSOAP\*.xsd /language:VB /namespace:*,schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn  /ct:System.Collections.Generic.List`1 /config:app.config /mergeConfig
-'     * svcutil.exe https://api.cipcert.goevo.com/2.0.19/SvcInfo CWSSOAP\*.xsd /language:VB /namespace:*,schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.SvcInfo /ct:System.Collections.Generic.List`1 /config:app.config /mergeConfig
+'     * svcutil.exe https://api.cipcert.goevo.com/2.1.28/DataServices CWSSOAP\*.xsd /language:VB /namespace:*,schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.TMS  /ct:System.Collections.Generic.List`1 /config:app.config /mergeConfig
+'     * svcutil.exe https://api.cipcert.goevo.com/2.1.28/Txn CWSSOAP\*.xsd /language:VB /namespace:*,schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.Txn  /ct:System.Collections.Generic.List`1 /config:app.config /mergeConfig
+'     * svcutil.exe https://api.cipcert.goevo.com/2.1.28/SvcInfo CWSSOAP\*.xsd /language:VB /namespace:*,schemas.evosnap.com.Ipc.General.WCF.Contracts.Common.External.SvcInfo /ct:System.Collections.Generic.List`1 /config:app.config /mergeConfig
 '     * 
 '     * Note : for VB.NET customers you should add the switch /language:VB to command lines above
 '     * 
@@ -2698,21 +2698,5 @@ Namespace SampleCode
 #End Region
 
 #End Region
-
-        Private Sub lnkOnlineDocumentation_LinkClicked(sender As Object, e As LinkLabelLinkClickedEventArgs) Handles lnkOnlineDocumentation.LinkClicked
-
-        End Sub
-
-        Private Sub ChkAllowPartialApprovals_CheckedChanged(sender As Object, e As EventArgs) Handles ChkAllowPartialApprovals.CheckedChanged
-
-        End Sub
-
-        Private Sub chkStep2_CheckedChanged(sender As Object, e As EventArgs) Handles chkStep2.CheckedChanged
-
-        End Sub
-
-        Private Sub tbIntroduction_Click(sender As Object, e As EventArgs) Handles tbIntroduction.Click
-
-        End Sub
     End Class
 End Namespace
