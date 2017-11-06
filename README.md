@@ -1,4 +1,4 @@
-![Snap* API 2.1.28](https://img.shields.io/badge/Snap*%20API-2.1.28-blue.svg) ![Release Version](https://img.shields.io/github/release/EVO-Snap/Ruby-SampleApp-REST-CardPresent.svg)
+![Snap* API 2.1.28](https://img.shields.io/badge/Snap*%20API-2.1.28-blue.svg) ![Release Version](https://img.shields.io/github/release/EVO-Snap/VisualBasic-SampleApp-CardPresent.svg)
 # EVO Snap* Visual Basic.NET Card Present Rest Sample Application
 
 This application is sample code demonstrating how to integrate with Evo Snap*'s
