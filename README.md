@@ -16,13 +16,16 @@ This software depends on contacting the Snap* API for all functionality, so you
 will need to obtain an IdentityToken from your Solutions Consultant in order to
 run this project successfully.
 
-This project was created with Ruby 2.3.3 and makes direct calls to the Snap* API
-via the built in Net::HTTP library.  It only uses built in packages.
+**This project was created in Visual Studio 2010.  You may need to update the project if you are using a more recent version of Visual Studio.**
+
+### Set Up
+
+1. Edit the app.config file and enter the IdentityToken given to you by your Solutions Consultant.
+2. The Endpoint Management section of the app.config file define the endpoints the application will use. 	Be sure these are set to the version of CWS you are connecting to.
 
 ### How To Use
 
-You'll need to edit config.rb once you've got your identity information from
-your Solutions Consultant.  Run the application and you will see:
+Build the project in Visual Studio, then run the resulting .exe file.  You will see:
 
 ![Introductary Screenshot](./screenshots/step1.png)
 
@@ -154,29 +157,13 @@ to CWS can be seein in app.config.
 
 ## License
 
- This software and documentation is subject to and made
- available only pursuant to the terms of an executed license
- agreement, and may be used only in accordance with the terms
- of said agreement. This software may not, in whole or in part,
- be copied, photocopied, reproduced, translated, or reduced to
- any electronic medium or machine-readable form without
- prior consent, in writing, from EVO Payments International, INC.
+ - Copyright: 2018 EVO Payments International - All Rights Reserved
 
- Use, duplication or disclosure by the U.S. Government is subject
- to restrictions set forth in an executed license agreement
- and in subparagraph (c)(1) of the Commercial Computer
- Software-Restricted Rights Clause at FAR 52.227-19; subparagraph
- (c)(1)(ii) of the Rights in Technical Data and Computer Software
- clause at DFARS 252.227-7013, subparagraph (d) of the Commercial
- Computer Software--Licensing clause at NASA FAR supplement
- 16-52.227-86; or their equivalent.
+This software and documentation is subject to and made available only pursuant to the terms of an executed license agreement, and may be used only in accordance with the terms of said agreement. This software may not, in whole or in part, be copied, photocopied, reproduced, translated, or reduced to
+any electronic medium or machine-readable form without prior consent, in writing, from EVO Payments International, INC.
 
- Information in this software is subject to change without notice
- and does not represent a commitment on the part of EVO Payments International.
+Use, duplication or disclosure by the U.S. Government is subject to restrictions set forth in an executed license agreement and in subparagraph (c)(1) of the Commercial Computer Software-Restricted Rights Clause at FAR 52.227-19; subparagraph (c)(1)(ii) of the Rights in Technical Data and Computer Software clause at DFARS 252.227-7013, subparagraph (d) of the Commercial Computer Software--Licensing clause at NASA FAR supplement 16-52.227-86; or their equivalent.
 
- Sample Code is for reference Only and is intended to be used for educational
- purposes. It's the responsibility of the software company to properly
- integrate into thier solution code that best meets thier production needs.
+Information in this software is subject to change without notice and does not represent a commitment on the part of EVO Payments International.
 
- - Copyright:: 2017 EVO Payments International - All Rights Reserved
- - License:: Proprietary
+Sample Code is for reference Only and is intended to be used for educational purposes. It's the responsibility of the software company to properly integrate into thier solution code that best meets thier production needs.
